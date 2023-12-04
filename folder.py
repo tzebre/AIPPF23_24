@@ -13,9 +13,9 @@ def get_parser():
                         help='degrée or rotation')
     return parser
 
-face_path = "img/face"
-other_path = "img/other"
-result_path = "img/result"
+face_path = "dataset/face"
+other_path = "dataset/other"
+result_path = "dataset/result"
 dump = "."
 shutil.rmtree(result_path)
     # Recreate the empty directory
