@@ -29,7 +29,7 @@
     <div class="student col-4">
         <p>Lucas Nicolas IGLESIAS SUILS -- KELLERMANN</p>
         <p>ID:40148166</p>
-        <p><a href="mailto:jemathieu2-c@my.cityu.edu.hk">jemathieu2-c@my.cityu.edu.hk</a></p>
+        <p><a href="mailto:liglesias2-c@my.cityu.edu.hk">liglesias2-c@my.cityu.edu.hk</a></p>
     </div>
     <div class="student col-4">
         <p>Maud van Lent</p>
@@ -40,7 +40,8 @@
 <div class="container ">
     <div class="text-center">
         <h3>Abstract</h3>
-        <p>Facial recognition technology is rapidly advancing globally, finding applications ranging from unlocking
+        <p class="col-8 mx-auto">Facial recognition technology is rapidly advancing globally, finding applications
+            ranging from unlocking
             smartphones to identifying individuals in public spaces. However, integrating this technology into our daily
             lives requires careful consideration of both technical and ethical aspects. We need to ensure that it aligns
             effectively with the contemporary world. In order to demonstrate the feasibility of implementing facial
@@ -61,25 +62,18 @@
             </div>
             <div aria-labelledby="headingOne" class="collapse" data-parent="#accordion" id="collapseOne">
                 <div class="card-body col-10 mx-auto">
-                    <p>Started in the early 60’s in secret by Woodrow “Woody” Bledsoe in the Central Intelligence
-                        Agency (CIA), research
-                        about facial recognition has quickly evolved and found important usage in our daily lives.</p>
-                    <p> In the early daysfacial recognition didn’t even use computing methods, it was only an assembly
-                        of manual
-                        measurements between different facial points. This identification technique evolved in parallel
-                        with
-                        Artificial
-                        intelligence and deep learning improvement, leading to quicker and better identification relying
-                        on more
-                        features.
+                    <p>Started in the early 60’s in secret, research about facial recognition has quickly evolved and
+                        found important usage in our daily lives.</p>
+                    <p> In the early days facial recognition didn’t even use computing methods, it was only an assembly
+                        of manual measurements between different facial points. This identification technique evolved in
+                        parallel with Artificial intelligence and deep learning improvement, leading to quicker and
+                        better identification relying on more features.
                     </p>
                     <p>
                         Today, thanks to improved hardware, facial recognition can be used on a wide range of hardware
-                        such as
-                        computers,
-                        drones, or cameras. It uses a wide range of technologies such as Haar or thermal images to
-                        extract features.
-                        However, this emerging technology is increasingly raising ethical and security issues. </p>
+                        such as computers, drones, or cameras. It uses a wide range of technologies such as Haar or
+                        thermal images to extract features. However, this emerging technology is increasingly raising
+                        ethical and security issues. </p>
                 </div>
             </div>
         </div>
@@ -100,7 +94,6 @@
                         concerns arise regarding data storage, privacy, age-related changes, and cosmetic surgery. The
                         algorithm must consider unchangeable variables to ensure effectiveness and address these
                         concerns.
-
                     </p>
                     <h6>Face ID-Apple </h6>
                     <p>Apple has made significant progress in integrating facial recognition into our daily lives
@@ -111,14 +104,13 @@
                         itself. Additionally, Apple has implemented an attention awareness feature that requires the
                         user to actively look at the phone to unlock it, reducing the risk of unauthorized access
                         through forced unlocking methods.
-
                     </p>
                     <h6>Mass monitoring-law enforcement authorities </h6>
                     <p>The proliferation of CCTV, facial recognition, and machine learning has increased surveillance
-                    capabilities for law enforcement. While it aids security, concerns arise regarding privacy, bias,
-                    and ethical implications. Some tech companies have restricted sales of facial recognition data
-                    to address these concerns, but its effectiveness remains uncertain. The use of such technology
-                    raises fundamental questions about its necessity and accuracy.
+                        capabilities for law enforcement. While it aids security, concerns arise regarding privacy,
+                        bias, and ethical implications. Some tech companies have restricted sales of facial recognition
+                        data to address these concerns, but its effectiveness remains uncertain. The use of such
+                        technology raises fundamental questions about its necessity and accuracy.
                     </p>
 
                     <h6>Recognitions systems on drone-US Army </h6>
@@ -154,10 +146,68 @@
                         an extremely efficient algorithm and, second, it fully meets the ethical concerns we had in
                         mind. </p>
                     <h6>Problem 1-Technical part </h6>
+                    <p>let's talk about the Haar Cascades facial recognition method. This method uses machine learning,
+                        and its "cascade" function is trained on images that are positive as well as negative. This
+                        algorithm is based on Haar feature, we can define simple ones: Edge
+                        features, Line features, and Four-rectangle features (Image 1) are our three primary Haar
+                        features that we use to do this. So, one of the first steps in our project was to code these
+                        features.</p>
+                    <img class="mx-auto d-block" src="img/feature.png" title="Image 1: Three main Haar features.">
+                    <p>Subtracting the total of the pixels beneath the black and white portions from the total of the
+                        pixels under the white portion yields a unique value.</p>
+                    <p>We must first determine the amounts under the black and white squares in order to see the
+                        difference. This is where the concept of "integral images" is introduced. Consequently, a
+                        picture is created, with the sum of the pixels in the top left corner at each location. In
+                        order, to get the sum of pixels from an area, we only need to access four value of the integral
+                        image (Image 2). </p>
+                    <img class="mx-auto d-block" src="img/diagram.png"
+                         title="Image 2) Diagram showing the calculation of the set of pixels located to the top left of a point.">
+                    <p>This is the second major challenge of our project, coding the concept of image integral and
+                        generating the image of the pixel sum set.</p>
+                    <img class="mx-auto d-block" src="img/integral.png"
+                         title="Image 3) Integral image (left), Original image (right).">
+                    <p>It frequently happens that the results of computations are not used because they are not useful.
+                        However, our algorithm does not currently know which values to
+                        retain; we do. Next, we present the concept of "Adaboost". In order to find the optimal
+                        threshold for categorizing into positive (face present) and negative (no face) categories, we
+                        must apply each feature to our training photos (face or not face). Only the features with the
+                        lowest error rates
+                        are chosen in an effort to minimize mistakes and misclassifications. These characteristics help
+                        to distinguish a face. It's a more involved process. At the start, each image has the same
+                        weight. Photos with bad classifications are given additional weight after each classification.
+                        After then, the same process is repeated. Error rates are now calculated. Additionally, new
+                        weight measurements are acquired. Until the desired accuracy or error rate is reached, or until
+                        the necessary number of features is identified, the process is repeated. A weighted sum of the
+                        weak classifiers creates the final classifier. The significant issue of efficiency now arises.
+                        The idea of a "Cascade of Classifiers" has been presented. We will no longer use every feature
+                        on a single window. Each characteristic will be categorized into a classifier stage, which will
+                        be applied sequentially. This effectively says that we won't move on to the second step if the
+                        first is not validated. When there is nothing to do with the person's face in the image window,
+                        this saves a significant amount of time. But for this step system to function correctly, phase
+                        one characteristics need to be laxer than phase two characteristics, and so forth. We've only
+                        coded the function that retrieves feature values regardless of their location in an image.</p>
+                    <p>The following notebook present the code to compute all the previous algorithm presented</p>
                     <embed class="h-80" height="100%" src="notebook.html" type="text/html" width="100%">
                     <img class="mx-auto d-block" src="img/movie.gif">
+                    <p>But we didn't use it because we would have had to train the model with it. The same goes for
+                        phase batch classification. However, we preferred to use models that had already been trained,
+                        as the training data set selected by these teams is far more relevant than what we would have
+                        selected with our limited experience. This would have created a bias due to our poor
+                        selection.</p>
                     <h6>Problem 2-Ethical part </h6>
-                    test
+                    <p>We are a group made up of members all from Europe where there is in the RGPD in force. Having
+                        been aware for several years of the need to protect our personal data and privacy, we decided to
+                        focus on a subject such as facial recognition, and more specifically on Haar Cascades facial
+                        recognition method.</p>
+                    <p>From an ethical point of view, we have chosen to use this approach because we have total control
+                        over our training image bank. Taking care to use only images of faces that are free of rights
+                        and of consenting individuals is very important to us, as we want to respect everyone's privacy
+                        as much as possible and ensure that their data is used only for the purposes we set out in our
+                        initial objective. It's also important to know that the only time we store any information using
+                        this technique is when we're forming our training dataset. Apart from this, we do not store any
+                        personal information, nor do we make any link between a person's identity and their image. Nor
+                        do we store images after a face has been identified, as this is part of the personal data used
+                        to identify a person.</p>
                 </div>
             </div>
         </div>
@@ -172,16 +222,69 @@
             </div>
             <div aria-labelledby="headingFour" class="collapse" data-parent="#accordion" id="collapseFour">
                 <div class="card-body  col-10 mx-auto">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
-                    wolf
-                    moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
-                    eiusmod.
-                    Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
-                    shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente
-                    ea
-                    proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw
-                    denim
-                    aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    <p>After implementing the face detection solution on one of our computers, we tested it to see how
+                        effective it was, and to derive some numerical values. </p>
+                    <h6>Reproduction and use of Face recognition with Haar Cascades method</h6>
+                    <p>We used a model provided by OpenCV, which specializes in face recognition. It is,
+                        of course, based on Haar Cascades, and we used the parts of the code reworked by our group: haar
+                        features, image integral and feature value retrieval. On the other hand, having selected a
+                        model, and even though we hadn't trained it ourselves, we decided to test it to verify the
+                        figures we'd read about in the Haar Cascades facial recognition method research paper. </p>
+                    <p>We made one code base on OpenCV to place a rectangle around the face `webcam.py`.</p>
+                    <p>To test the algorithm, we selected an image dataset comprising a thousand face images from celebA
+                        face and a thousand images composed of furniture and animals. After running the method on the
+                        2000 images (`folder.py`), we obtained forty-five false negatives, zero false positives and
+                        eighteen double
+                        positives (two faces found on an image, the correct face from the photo and a square that is not
+                        a face). False negatives are considered serious because they are misleading, whereas double
+                        positives are less serious because they identify the face in the photo.</p>
+                    <img class="mx-auto d-block" src="img/FN.png"
+                         title="Image 4) Photos of false negatives">
+                    <img class="mx-auto d-block" src="img/DP.png"
+                         title="Image 5) Photos of double positives">
+                    <img class="mx-auto d-block" src="img/TP.png"
+                         title="Image 6) Photos of true positives">
+                    <img class="mx-auto d-block" src="img/TN.png"
+                         title="Image 7) Photos of true negatives">
+                    <img class="mx-auto d-block" src="img/table1.png"
+                         title="Table 1) Results on 2000 images">
+                    <h6>Trying to beat the Haar Cascades method</h6>
+                    <p>To test the robustness of the solution, we carried out several different tests. The first test
+                        consists in generating two thousand images of the same size as the photos. These images are
+                        composed of random pixels.</p>
+                    <img class="mx-auto d-block" src="img/rdm.png"
+                         title="Image 8) Example of generated randomized image">
+                    <p>In pairs, we merge a photo from the test dataset with a randomly generated photo. We then run the
+                        method on this new batch of images.</p>
+                    <img class="mx-auto d-block" src="img/merge.png"
+                         title="Image 9) Example of two image respectively merged with a blur equal to 15 (left) and a blur equal to 30 (right)">
+                    <p>We tried to use Haar face recognition with different modification (bluring or rotating)</p>
+                    <ul>
+                        <li>
+                            <p>Blur = 15, rotation = 0</p>
+                            <img class="mx-auto d-block" src="img/b15.png"
+                                 title="Table 2) Results on 2000 images with a 15 blur">
+                        </li>
+                        <li>
+                            <p>Blur = 30, rotation = 0</p>
+                            <img class="mx-auto d-block" src="img/b30.png"
+                                 title="Table 3) Results on 2000 images with a 30 blur">
+                        </li>
+                        <li>
+                            <p>Blur = 0, rotation = 15</p>
+                            <img class="mx-auto d-block" src="img/r15img.png"
+                                 title="Image 10) Example of an image with with 149-degree counterclockwise rotation">
+                            <img class="mx-auto d-block" src="img/r15.png"
+                                 title="Table 4) Results on 2000 images with a 149-degree counterclockwise rotation">
+                        </li>
+                    </ul>
+                    <p>Blurring at 15 has so little impact on the results that it's negligible, and blurring at 30
+                        changes the results, but the method is still able to identify the images. There are just more
+                        situations in which it detects two faces instead of one.</p>
+                    <p>Rotating an image really impacts the results, as the method scans horizontally and therefore
+                        can't deal with faces that aren't straight.</p>
+
+
                 </div>
             </div>
         </div>
@@ -196,19 +299,84 @@
             </div>
             <div aria-labelledby="headingThree" class="collapse" data-parent="#accordion" id="collapseFive">
                 <div class="card-body col-10 mx-auto">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
-                    wolf
-                    moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
-                    eiusmod.
-                    Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
-                    shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente
-                    ea
-                    proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw
-                    denim
-                    aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    <p>Facial recognition is a very broad field of computer vision, with many different approaches
+                        possible, both in terms of software and hardware, or both. Each of these methods has its
+                        advantages and disadvantages, whether in terms of computational resources or training datasets,
+                        or in ethical terms. For this project, we decided to re-implement and test a method based on
+                        Haar Cascades. We were able to highlight the robustness of this method, despite its very simple
+                        technical foundations based on sums and products, by using various optimization methods such as
+                        integral images and Adaboost applied on a cascade of weak classifiers.</p>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="ref mt-5">
+        <h4>Reference</h4>
+        <ol type="i">
+            <li>Barney, N., & Bernstein, C. (2023, 20 avril). Face detection. Enterprise AI.<br>
+                <a href="https://www.techtarget.com/searchenterpriseai/definition/face-detection">https://www.techtarget.com/searchenterpriseai/definition/face-detection</a>
+            </li>
+            <li>What is facial recognition – Definition and explanation. (2023, 19 avril). www.kaspersky.com.<br>
+                <a href="https://www.kaspersky.com/resource-center/definitions/what-is-facial-recognition">https://www.kaspersky.com/resource-center/definitions/what-is-facial-recognition</a>
+            </li>
+            <li>
+                Where is facial recognition used ? (2023, 12 juin). Thales Group.<br>
+                <a href="https://www.thalesgroup.com/en/markets/digital-identity-and-security/government/inspired/where-facial-recognition-used">https://www.thalesgroup.com/en/markets/digital-identity-and-security/government/inspired/where-facial-recognition-used</a>
+            </li>
+            <li>
+                Facial recognition issues. (2023, 12 juin). Thales Group.<br>
+                <a href="https://www.thalesgroup.com/en/markets/digital-identity-and-security/government/inspired/facial-recognition-issues">https://www.thalesgroup.com/en/markets/digital-identity-and-security/government/inspired/facial-recognition-issues</a>
+            </li>
+            <li>
+                Panel, E. (2023, août 18). 14 Intriguing new and potential uses for facial recognition technology.
+                Forbes.<br>
+                <a href="https://www.forbes.com/sites/forbestechcouncil/2023/08/18/14-intriguing-new-and-potential-uses-for-facial-recognition-technology/?sh=444685e12666">https://www.forbes.com/sites/forbestechcouncil/2023/08/18/14-intriguing-new-and-potential-uses-for-facial-recognition-technology/?sh=444685e12666</a>
+            </li>
+            <li>
+                Facial recognition history. (2023, 12 juin). Thales Group.<br>
+                <a href="https://www.thalesgroup.com/en/markets/digital-identity-and-security/government/inspired/history-of-facial-recognition#:~:text=Facial%20recognition%20is%20more%20than,computer%20was%20to%20find%20matches.">https://www.thalesgroup.com/en/markets/digital-identity-and-security/government/inspired/history-of-facial-recognition#:~:text=Facial%20recognition%20is%20more%20than,computer%20was%20to%20find%20matches.</a>
+            </li>
+            <li>
+                Kortli, Y., Jridi, M., Falou, A. A., & Atri, M. (2020b). Face Recognition Systems : a survey. Sensors,
+                20(2), 342.<br><a href="https://doi.org/10.3390/s20020342">https://doi.org/10.3390/s20020342</a>
+            </li>
+            <li>
+                Gault, M. (2023, 27 février). US Military Signs Contract to Put Facial Recognition on Drones. VICE.<br>
+                <a href="https://www.vice.com/en/article/7k85qe/us-military-signs-contract-to-put-facial-recognition-on-drones">https://www.vice.com/en/article/7k85qe/us-military-signs-contract-to-put-facial-recognition-on-drones</a>
+            </li>
+            <li>
+                Police surveillance and facial recognition : Why data privacy is imperative for communities of color
+                | Brookings. (2023, 27 septembre). Brookings.<br>
+                <a href="https://www.brookings.edu/articles/police-surveillance-and-facial-recognition-why-data-privacy-is-an-imperative-for-communities-of-color/">https://www.brookings.edu/articles/police-surveillance-and-facial-recognition-why-data-privacy-is-an-imperative-for-communities-of-color/</a>
+            </li>
+            <li>
+                Face surveillance and biometrics. (s. d.). EPIC - Electronic Privacy Information Center. <br><a href="
+                   https://epic.org/issues/surveillance-oversight/face-surveillance/">https://epic.org/issues/surveillance-oversight/face-surveillance/</a>
+            </li>
+            <li>
+                OpenCV : Face detection using haar cascades. (s. d.).<br><a
+                    href="https://docs.opencv.org/4.x/d2/d99/tutorial_js_face_detection.html">https://docs.opencv.org/4.x/d2/d99/tutorial_js_face_detection.html</a>
+            </li>
+            <li>
+                Publication - TR2004-043. (s. d.). Mitsubishi Electric Research Laboratories. <br><a
+                    href="https://merl.com/publications/TR2004-043">https://merl.com/publications/TR2004-043</a>
+            </li>
+            <li>
+                Heaven, W. D. (2021, 11 mai). How to stop AI from recognizing your face in selfies. MIT Technology
+                Review.<br><a
+                    href="https://www.technologyreview.com/2021/05/05/1024613/stop-ai-recognizing-your-face-selfies-machine-learning-facial-recognition-clearview/">https://www.technologyreview.com/2021/05/05/1024613/stop-ai-recognizing-your-face-selfies-machine-learning-facial-recognition-clearview/</a>
+            </li>
+            <li>
+                CelebA Dataset.(s. d.).<br><a href="http://mmlab.ie.cuhk.edu.hk/projects/CelebA.html">http://mmlab.ie.cuhk.edu.hk/projects/CelebA.html</a>
+            </li>
+            <li>
+                Opencv. (s. d.). OpenCV/data/haarcascades at Master · OpenCV/opencv. GitHub. <br>
+                <a href="https://github.com/opencv/opencv/tree/master/data/haarcascades">https://github.com/opencv/opencv/tree/master/data/haarcascades</a>
+            </li>
+            <li>
+                Github : <a href="https://github.com/tzebre/AIPPF23_24">https://github.com/tzebre/AIPPF23_24</a>
+            </li>
+        </ol>
     </div>
 </div>
 
