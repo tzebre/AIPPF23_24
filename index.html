@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <script crossorigin="anonymous"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script crossorigin="anonymous"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+    <script crossorigin="anonymous"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+<h1 class="display-5 text-center mt-4">Face Recognition implementation in real-world usage <br> and security
+    issue-related</h1>
+<h2 class="text-center my-5">GE2340 - Course Project - 2023/2024 Semester A </h2>
+<div class="row col-10 mx-auto">
+    <div class="student col-4">
+        <p>Théo MATHIEU</p>
+        <p>ID:</p>
+        <p><a href="mailto:jemathieu2-c@my.cityu.edu.hk">jemathieu2-c@my.cityu.edu.hk</a></p>
+    </div>
+    <div class="student col-4">
+        <p>Lucas Nicolas IGLESIAS SUILS -- KELLERMANN</p>
+        <p>ID:</p>
+        <p><a href="mailto:jemathieu2-c@my.cityu.edu.hk">jemathieu2-c@my.cityu.edu.hk</a></p>
+    </div>
+    <div class="student col-4">
+        <p>MATHIEU Theo</p>
+        <p>ID:</p>
+        <p><a href="mailto:jemathieu2-c@my.cityu.edu.hk">jemathieu2-c@my.cityu.edu.hk</a></p>
+    </div>
+</div>
+<div class="container ">
+    <div class="text-center">
+        <h3>Abstract</h3>
+        <p>blavla cadre du cours blabla </p>
+    </div>
+    <div id="accordion">
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h4 class="mb-0">
+                    <button aria-controls="collapseOne" aria-expanded="false" class="btn btn-link collapsed"
+                            data-target="#collapseOne" data-toggle="collapse">
+                        1) Introduction
+                    </button>
+                </h4>
+            </div>
+            <div aria-labelledby="headingOne" class="collapse" data-parent="#accordion" id="collapseOne">
+                <div class="card-body col-10 mx-auto">
+                    <p>Started in the early 60’s in secret by Woodrow “Woody” Bledsoe in the Central Intelligence
+                        Agency (CIA), research
+                        about facial recognition has quickly evolved and found important usage in our daily lives.</p>
+                    <p> In the early daysfacial recognition didn’t even use computing methods, it was only an assembly
+                        of manual
+                        measurements between different facial points. This identification technique evolved in parallel
+                        with
+                        Artificial
+                        intelligence and deep learning improvement, leading to quicker and better identification relying
+                        on more
+                        features.
+                    </p>
+                    <p>
+                        Today, thanks to improved hardware, facial recognition can be used on a wide range of hardware
+                        such as
+                        computers,
+                        drones, or cameras. It uses a wide range of technologies such as Haar or thermal images to
+                        extract features.
+                        However, this emerging technology is increasingly raising ethical and security issues. </p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingTwo">
+                <h4 class="mb-0">
+                    <button aria-controls="collapseTwo" aria-expanded="false" class="btn btn-link collapsed"
+                            data-target="#collapseTwo" data-toggle="collapse">
+                        2) Related works
+                    </button>
+                </h4>
+            </div>
+            <div aria-labelledby="headingTwo" class="collapse" data-parent="#accordion" id="collapseTwo">
+                <div class="card-body col-10 mx-auto">
+                    <h6>Facial recognition in airport-Thales </h6>
+                    <p>Thales, one of France's largest companies, is working on the development of facial recognition
+                        for use in airports. They would use smart gates to identify people via their faces, enabling
+                        users to use their biometric passports for identity checks. This would enable faster checks
+                        without any action on the part of the user, while at the same time providing a higher level of
+                        reliability thanks to advanced recognition algorithms. However, this will not replace all human
+                        actions overnight but will complement them to facilitate the role of customs officers. The live
+                        photo taken during the identity check is stored on a server and then compared with the subject
+                        before he or she boards the plane. But there are problems associated with this system. For
+                        example, we don't know how long a photo is stored on a server, and if a person doesn't want
+                        their photo stored on the company's servers, how do they board the plane? What's more, if the
+                        storage server leaks, then an ill-intentioned person will be able to obtain all the information
+                        linked to a person's identity, as well as what he or she looks like. What's more, after a
+                        certain age, passports are kept for longer and longer by individuals without needing to be
+                        renewed, so the algorithm needs to be able to make a link between a more recent 2D photo of the
+                        person and their current 3D face, which will be transformed by age. The algorithm must be able
+                        to identify these two people as being the same. This is also a concern for people undergoing
+                        cosmetic surgery, as the results of the algorithm's calculations may differ. The algorithm must
+                        be based on variables that cannot be changed by the subject, otherwise it becomes obsolete. </p>
+                    <h6>Face ID-Apple </h6>
+                    <p>Apple has made a big step in implementing facial recognition in our daily use with Face ID. This
+                        cutting-edge technology is an example of a hardware and software combination to improve facial
+                        recognition performance leading to one error out of one million. A combination of different
+                        captors such as an IR camera, helps to create a 3D map of the face and a precise 2D mapping. On
+                        the ethics and security aspect, apple ensure that all the biometrics data are only stocked on
+                        the phone, also Apple has implemented an attention awareness feature that implies the user to
+                        investigate the phone to unlock it and thus reduce the risk of forced unlocking by a tier.</p>
+                    <h6>Mass monitoring-law enforcement authorities </h6>
+                    <p>The extent of possible surveillance by law enforcement authorities has significantly increased
+                        with the advent of CCTV and facial recognition technologies, as well as machine learning
+                        algorithms. This is very beneficial to society since it encourages the maintenance of security
+                        by making it simple to find those who are committing crimes. However, it also raises more and
+                        more worries about how it may affect our personal information, privacy, and
+                        communities—especially communities of color. From the federal to the municipal levels, numerous
+                        government organizations rely on tools created by the private sector to access massive volumes
+                        of data from social media, smartphones, and private cloud servers. There are verifiable
+                        instances of commercial businesses offering facial recognition and data collecting services to
+                        government authorities in the USA case, including Clearview AI, Vigilant Solutions, and ODIN
+                        Intelligence. Due to ethical concerns, a number of significant tech companies, including Amazon,
+                        Microsoft, and IBM, have pledged to either temporarily or permanently stop selling face
+                        recognition technology to law enforcement. This, however, calls into doubt the efficacy of such
+                        efforts, since other businesses might continue to provide these technologies to government
+                        organizations. In addition, we must consider the ethical and privacy consequences, raising
+                        issues with database bias, technological accuracy, and the fundamental question of whether to
+                        employ face recognition technology at all, even as accuracy increases. </p>
+                    <h6>Recognitions systems on drone-US Army </h6>
+                    <p>The US Army has partnered with a company called RealNetworks to create autonomous drones equipped
+                        with facial recognition systems. The aim of this approach is benevolent, as it can help
+                        enormously in intelligence, surveillance, and reconnaissance missions. A drone can be sent out
+                        to identify criminals in hostile areas and theaters of war, without having to risk human life
+                        every time. Technologically speaking, this implies having to deploy and design a software and
+                        hardware stack capable of fitting on a single drone, including its on-board computer,
+                        communication systems and remote-control software to enable operation in communication
+                        environments, allow remote human operators to obtain exploitable information and open the
+                        possibility of real-time autonomous response on the part of the robot. However, this leads us to
+                        a very big negative point. The contract between the army and the company talks of equipping
+                        unarmed drones for the time being, but once the technology has been developed, there's nothing
+                        to stop them developing it on armed drones capable of killing. This raises a very big ethical
+                        question: should the drone be allowed to make the decision to kill its target if identification
+                        is positive? Depending on the country and the different laws, the drone could take this decision
+                        to take life on its own, while in other countries, human confirmation would be required before
+                        taking any action. The problem here is not directly linked to facial recognition, but rather to
+                        all the drifts that could result from it, both good and bad. </p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingThree">
+                <h4 class="mb-0">
+                    <button aria-controls="collapseThree" aria-expanded="false" class="btn btn-link collapsed"
+                            data-target="#collapseThree" data-toggle="collapse">
+                        3) Problem Description & Discussion
+                    </button>
+                </h4>
+            </div>
+            <div aria-labelledby="headingThree" class="collapse" data-parent="#accordion" id="collapseThree">
+                <div class="card-body col-10 mx-auto">
+                    <p>Upon initial observation, there are a huge number of facial recognition algorithms and methods.
+                        They are all more or less complex, have different learning methods and retain data for varying
+                        lengths of time. As part of this project for the GE2340 course, we chose to show how to
+                        implement a facial recognition algorithm on your computer. For our approach, we selected the
+                        Viola-Jones Face Detection Technique, also known as Haar Cascade, for two reasons: first, it's
+                        an extremely efficient algorithm and, second, it fully meets the ethical concerns we had in
+                        mind. </p>
+                    <h6>Problem 1-Technical part </h6>
+                    <embed class="h-80" height="100%" src="notebook.html" type="text/html" width="100%">
+                    <img class="mx-auto d-block" src="img/movie.gif">
+                    <h6>Problem 2-Ethical part </h6>
+                    test
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingFour">
+                <h4 class="mb-0">
+                    <button aria-controls="collapseFour" aria-expanded="false" class="btn btn-link collapsed"
+                            data-target="#collapseFour" data-toggle="collapse">
+                        4) Results & reflexion
+                    </button>
+                </h4>
+            </div>
+            <div aria-labelledby="headingFour" class="collapse" data-parent="#accordion" id="collapseFour">
+                <div class="card-body  col-10 mx-auto">
+                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
+                    wolf
+                    moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
+                    eiusmod.
+                    Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
+                    shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente
+                    ea
+                    proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw
+                    denim
+                    aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingFive">
+                <h4 class="mb-0">
+                    <button aria-controls="collapseFive" aria-expanded="false" class="btn btn-link collapsed"
+                            data-target="#collapseFive" data-toggle="collapse">
+                        5) Conclusion
+                    </button>
+                </h4>
+            </div>
+            <div aria-labelledby="headingThree" class="collapse" data-parent="#accordion" id="collapseFive">
+                <div class="card-body col-10 mx-auto">
+                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
+                    wolf
+                    moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
+                    eiusmod.
+                    Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
+                    shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente
+                    ea
+                    proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw
+                    denim
+                    aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+
+</html>
